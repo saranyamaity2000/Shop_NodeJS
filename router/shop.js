@@ -1,4 +1,5 @@
 const express = require('express') ;
+
 const Logger = require('../logger.js') ;
 const logger = new Logger("/Users/saranyamaity/Documents/NodeJs/Udemy/ExpressJS/logs.txt") ;
 
