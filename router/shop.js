@@ -1,17 +1,22 @@
-const express = require('express') ;
+const path = require('path');
 
-const Logger = require('../logger.js') ;
-const logger = new Logger("/Users/saranyamaity/Documents/NodeJs/Udemy/ExpressJS/logs.txt") ;
+const rootDir = require('../util/path');
 
-const router = express.Router() ; // plugable into other express app 
+const express = require('express');
 
-// ------------------
+const Logger = require('../logger.js');
+const logger = new Logger(path.join(rootDir, 'logs.txt'));
 
-router.get('/', (req, res, next) =>{
-    logger.log("Accessing Base Page");
-    res.send('<h1>Base Page</h1>') ; 
-}); 
+const router = express.Router(); // plugable into other express app 
 
 // ------------------
 
-exports.router =  router ; 
+router.get('/', (req, res, next) => {
+    res.sendFile(path.join(rootDir, 'views', 'shop.html'));
+});
+
+// ------------------
+
+// exports.router =  router ; 
+// or
+module.exports = router;

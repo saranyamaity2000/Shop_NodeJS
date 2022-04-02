@@ -1,22 +1,29 @@
-const express = require('express') ;
+const path = require('path');
 
-const Logger = require('../logger.js') ;
-const logger = new Logger("/Users/saranyamaity/Documents/NodeJs/Udemy/ExpressJS/logs.txt") ;
+const rootDir = require('../util/path');
 
-const router = express.Router() ; // plugable into other express app 
+const express = require('express');
 
-// ------------------
+const Logger = require('../logger.js');
+const logger = new Logger(path.join(rootDir, 'logs.txt'));
 
-router.get('/product', (req, res, next) =>{
-    res.send('<form action="/add-product" method="POST"><input type="text" name="product_name"><button type="submit">Add Product</button</form>');
-}); 
-
-router.post('/add-product', (req, res, next) =>{
-    const productname = req.body.product_name; 
-    logger.log(`Product ${productname} Has Been Added Successfully!`);
-    res.redirect('\product');
-}); 
+const router = express.Router(); // plugable into other express app 
 
 // ------------------
 
-exports.router =  router ; 
+router.get('/add-product', (req, res, next) => {
+    let addProductPath = path.join(rootDir, 'views', 'add-product.html')
+    res.sendFile(addProductPath);
+});
+
+router.post('/add-product', (req, res, next) => {
+    const productname = req.body.product;
+    logger.log(productname + " added!");
+    res.redirect('/admin/add-product');
+});
+
+// ------------------
+
+// exports.router =  router ;
+// or
+module.exports = router; // if its like this then .router not needed at end
