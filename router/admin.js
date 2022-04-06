@@ -19,7 +19,7 @@ router.get('/add-product', (req, res, next) => {
 router.post('/add-product', (req, res, next) => {
     const productname = req.body.product;
     logger.log(productname + " added!");
-    res.redirect('/admin/add-product');
+    res.redirect('/');
 });
 
 // ------------------
