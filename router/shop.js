@@ -17,7 +17,7 @@ const products = adminData.products;
 router.get('/', (req, res, next) => {
     console.log("shop.js => ", products);
     // res.sendFile(path.join(rootDir, 'views', 'shop.html'));
-    res.render('shop', { pageTitle: "shop" });
+    res.render('shop', { pageTitle: "shop", prods: products });
 });
 
 // ------------------
