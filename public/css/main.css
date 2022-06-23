@@ -1,9 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     padding: 0;
     margin: 0;
-    font-family: 'Chalkboard SE', sans-serif;
-    font-size: x-large;
+    font-family: 'Open Sans', sans-serif;
 }
+
 
 main {
     padding: 1rem;
@@ -56,22 +60,6 @@ main {
     margin: auto;
 }
 
-.form-control {
-    margin: 1rem 0;
-}
-
-.form-control label,
-.form-control input {
-    display: block;
-    width: 100%;
-    font-size: x-large;
-}
-
-.form-control input {
-    border: 2px solid gold;
-    font: inherit;
-    border-radius: 5px;
-}
 
 button {
     font: inherit;
@@ -98,12 +86,7 @@ button:active {
 }
 
 .card {
-    height: 700px;
-    width: 500px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .card__header,
@@ -122,13 +105,11 @@ button:active {
 }
 
 .card__image {
-    height: 390px;
-    width: 260px;
+    width: 100%;
 }
 
 .card__image img {
-    height: 390px;
-    width: 260px;
+    width: 100%;
 }
 
 .card__actions {
