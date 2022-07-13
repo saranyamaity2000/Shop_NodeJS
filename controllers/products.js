@@ -1,15 +1,17 @@
-const products = [];
+const Product = require("../models/product");
 
 exports.getAddProduct = (req, res) => {
-    res.render('add-product', { pageTitle: "Add Product" });
+  res.render("add-product", { pageTitle: "Add Product" });
 };
 
 exports.postAddProduct = (req, res) => {
-    const product_name = req.body.title;
-    products.push({ "title": product_name })
-    res.redirect('/');
+  const product = new Product(req.body.title, "dummyLink.com");
+  product.save();
+  res.redirect("/");
 };
 
 exports.getProducts = (req, res) => {
-    res.render('shop', { pageTitle: "Mangz", prods: products });
+  Product.fetchAll((products) => {
+    res.render("shop", { pageTitle: "Shop", prods: products });
+  });
 };
