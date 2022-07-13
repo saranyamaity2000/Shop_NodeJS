@@ -5,7 +5,7 @@ exports.getAddProduct = (req, res) => {
 };
 
 exports.postAddProduct = (req, res) => {
-  const product = new Product(req.body.title, "dummyLink.com");
+  const product = new Product(req.body.title, req.body.imgLink);
   product.save();
   res.redirect("/");
 };
