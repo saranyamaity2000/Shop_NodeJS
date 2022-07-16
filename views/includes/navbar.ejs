@@ -1,8 +1,26 @@
 <header class="main-header">
   <nav class="main-header__nav">
     <ul class="main-header__item-list">
-      <li class="main-header__item"><a class=<%= (pageTitle == "Shop"? "active":"not-active") %> href="/">Shop</a></li>
-      <li class="main-header__item"><a class=<%= (pageTitle == "Add Product"? "active":"not-active") %> href="/admin/add-product">Add Product</a></li>
+      <li class="main-header__item">
+        <a class=<%= (pageTitle == "Shop"? "active":"not-active") %> href="/">Shop</a>
+      </li>
+      <li class="main-header__item">
+        <a class=<%= (pageTitle == "Products"? "active":"not-active") %> href="/products">Products</a>
+      </li>
+      <li class="main-header__item">
+        <a class=<%= (pageTitle == "Cart"? "active":"not-active") %> href="/cart">Cart</a>
+      </li>
+
+      <li class="main-header__item">
+        <a class=<%= (pageTitle == "Checkout"? "active":"not-active") %> href="/checkout">Checkout</a>
+      </li>
+      
+      <li class="main-header__item">
+        <a class=<%= (pageTitle == "Add Product"? "active":"not-active") %> href="/admin/add-product">Add Product</a>
+      </li>
+      <li class="main-header__item">
+        <a class=<%= (pageTitle == "Admin Products"? "active":"not-active") %> href="/admin/products">Admin Products</a>
+      </li>
     </ul>
   </nav>
 </header>

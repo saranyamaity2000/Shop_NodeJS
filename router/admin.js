@@ -1,11 +1,15 @@
 const express = require("express");
-const productController = require("../controllers/products");
+const adminController = require("../controllers/admin");
 
 const router = express.Router(); // plugable into other express app
 
+// prefix -> admin
 router
   .route("/add-product")
-  .get(productController.getAddProduct)
-  .post(productController.postAddProduct);
+  .get(adminController.getAddProduct)
+  .post(adminController.postAddProduct);
+
+// prefix -> admin
+router.get("/products", adminController.getProducts);
 
 module.exports = router;
