@@ -2,7 +2,9 @@ const path = require("path");
 const fs = require("fs");
 
 module.exports = class Product {
-  constructor(title, imgLink, price , description) {
+
+  constructor(title, imgLink, price, description) {
+    this.id = Math.random().toString() + Math.random().toString(); // just a random id creation for now
     this.title = title;
     this.imgLink = imgLink;
     this.price = price;
@@ -22,6 +24,9 @@ module.exports = class Product {
   }
 
   save() {
+    /*
+    saves this item to the json file 
+    */
     const targetPath = path.join(global.__basedir, "data", "products.json");
     Product.fetchAll((products) => {
       products.push(this);
