@@ -21,10 +21,27 @@ exports.getOrders = (req, res) => {
 
 // path -> /cart (GET)
 exports.getCart = (req, res) => {
-    res.render("shop/cart", {pageTitle: "Cart"});
+    res.render("shop/cart", { pageTitle: "Cart" });
 };
 
 // path -> /checkout (GET)
 exports.getCheckout = (req, res) => {
-    res.render("shop/checkout", { pageTitle: "Checkout"});
+    res.render("shop/checkout", { pageTitle: "Checkout" });
 };
+
+
+// dyamic route controllers ---->
+
+
+// path -> /products/:productId 
+exports.getDetails = (req, res) => {
+    id = req.params.productId;
+    // Product.findbyId(id, product => res.send(product));
+    Product.findbyId(id, product =>
+        res.render("shop/product-detail", {
+            pageTitle: `${product.title}`,
+            product: product
+        })
+    );
+};
+

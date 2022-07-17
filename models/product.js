@@ -11,11 +11,12 @@ module.exports = class Product {
     this.description = description;
   }
 
-  static fetchAll(cb) {
-    /*
+  /*
          cb : it is callback function which takes 
               one parameter (basically all the fetched data)
-    */
+  */
+
+  static fetchAll(cb) { // fetches all data! 
     const targetPath = path.join(global.__basedir, "data", "products.json");
     fs.readFile(targetPath, (err, fileContent) => {
       if (!err && fileContent.length > 0) cb(JSON.parse(fileContent));
@@ -23,12 +24,16 @@ module.exports = class Product {
     });
   }
 
-  save() {
-    /*
-    saves this item to the json file 
-    */
+  static findbyId(id, cb) {
+    Product.fetchAll(products => {
+      const product = products.find(p => p.id === id);
+      cb(product);
+    });
+  }
+
+  save() { // saves this item to the json file 
     const targetPath = path.join(global.__basedir, "data", "products.json");
-    Product.fetchAll((products) => {
+    Product.fetchAll(products => {
       products.push(this);
       fs.writeFile(targetPath, JSON.stringify(products), err => {
         if (err) console.log(err);

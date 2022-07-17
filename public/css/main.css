@@ -113,6 +113,8 @@ button:active {
 }
 
 .card__actions {
+    display: flex;
+    justify-content: center;
     padding: 1rem;
     text-align: center;
 }
