@@ -54,12 +54,6 @@ main {
     color: rgb(7, 31, 249);
 }
 
-.product-form {
-    width: 20rem;
-    max-width: 90%;
-    margin: auto;
-}
-
 
 button {
     font: inherit;
@@ -77,7 +71,6 @@ button:active {
 }
 
 /* grid layout */
-
 .grid {
     display: flex;
     flex-wrap: wrap;

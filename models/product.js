@@ -1,6 +1,8 @@
 const path = require("path");
 const fs = require("fs");
 
+const targetPath = path.join(global.__basedir, "data", "products.json");
+
 module.exports = class Product {
 
   constructor(title, imgLink, price, description) {
@@ -17,7 +19,6 @@ module.exports = class Product {
   */
 
   static fetchAll(cb) { // fetches all data! 
-    const targetPath = path.join(global.__basedir, "data", "products.json");
     fs.readFile(targetPath, (err, fileContent) => {
       if (!err && fileContent.length > 0) cb(JSON.parse(fileContent));
       else cb([]);
@@ -32,7 +33,6 @@ module.exports = class Product {
   }
 
   save() { // saves this item to the json file 
-    const targetPath = path.join(global.__basedir, "data", "products.json");
     Product.fetchAll(products => {
       products.push(this);
       fs.writeFile(targetPath, JSON.stringify(products), err => {
