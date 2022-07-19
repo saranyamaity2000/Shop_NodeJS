@@ -5,5 +5,32 @@
 
 <body>
   <%- include('../includes/navbar')%>
-  
-<%- include('../includes/footer')%>
+  <main>
+    <% if(prods.length==0) {%>
+    <h1>Always add your desired items to Cart 😇</h1>
+    <%} else { %>
+    <div class="grid">
+      <% for(let product of prods) {%>
+      <article class="card product-item">
+        <header class="card__header">
+          <h1 class="product__title"><%= product.title %></h1>
+        </header>
+        <div class="card__image">
+          <img src="<%= product.imgLink %>" alt="<%= product.title %> ">
+        </div>
+        <div class="card__content">
+          <h2 class="product__price">$<%= product.price %></h2>
+        </div>
+        <div class="card__actions">
+          <input class="btn" type="number" id="quantity" name="quantity" value="<%=product.quantity%>" min="1" max="9">
+        </div>
+      </article>
+      <% } %>
+    </div>
+    <div class="footer" style="display: flex; justify-content:space-around ; align-items: center;">
+      <h2>Total Cost = <%=totalPrice%></h2>
+      <a href="/checkout"><button class="btn">Check Out</button></a>
+    </div>
+    <% } %>
+  </main>
+  <%- include('../includes/footer')%>

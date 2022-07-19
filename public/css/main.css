@@ -131,3 +131,13 @@ button:active {
     background-color: #00695c;
     color: white;
 }
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgb(238, 205, 18);
+  color: black;
+  text-align: center;
+}
