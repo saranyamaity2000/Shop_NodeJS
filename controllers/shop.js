@@ -71,8 +71,8 @@ exports.getDetails = (req, res) => {
     Product.findbyId(id, product =>
         res.render("shop/product-detail", {
             pageTitle: `${product.title}`,
+            path: "/products",
             product: product,
-            path: "/products"
         })
     );
 };

@@ -21,3 +21,10 @@
 .form-control textarea:focus {
     outline-color: #37f83e;
 }
+
+/* related to  add product section  */
+.product-form {
+    width: 20rem;
+    max-width: 90%;
+    margin: auto;
+}

@@ -4,7 +4,7 @@ const Product = require("../models/product");
 exports.getAddProduct = (req, res) => {
   res.render("admin/add-product", { 
     pageTitle: "Add Product" ,
-    path: "admin/add-product"
+    path: "/admin/add-product"
   });
 };
 // path -> admin/add-product (POST)
@@ -23,7 +23,7 @@ exports.getProducts = (req, res) => {
     res.render("admin/product-list", {
        pageTitle: "Admin Products", 
        prods: products,
-       path: "admin/products"
+       path: "/admin/products"
     });
   });
 };
